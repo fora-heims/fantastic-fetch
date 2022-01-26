@@ -16,7 +16,6 @@ export default function Home() {
       const data = await response.json();
       setData(data);
       setLoading(false);
-      await console.log(data);
     };
     fextchData();
   }, [number]);

@@ -7,7 +7,7 @@ export default function Details({ data }) {
       {data.map((item) => (
         <div className="zoo-card" key={item.id}>
           <h2>{item.name}</h2>
-          <img src={item.image_link} width="200px" />
+          <img src={item.image_link} width="250px" />
           <h3>{item.latin_name}</h3>
           <h5>
             {`${item.active_time} ${item.animal_type}`}

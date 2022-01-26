@@ -26,7 +26,7 @@ export default function Home() {
   }
   return (
     <div>
-      <Controls setData={setData} number={number} setNumber={setNumber} />
+      <Controls number={number} setNumber={setNumber} />
       <Details data={data} />
     </div>
   );

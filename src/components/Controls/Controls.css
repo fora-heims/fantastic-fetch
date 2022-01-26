@@ -1,0 +1,13 @@
+select {
+  padding: 10px;
+  border: solid grey 3px;
+  border-radius: 10px;
+  margin: 40px;
+}
+
+label,
+select {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.3rem;
+  font-weight: 900;
+}

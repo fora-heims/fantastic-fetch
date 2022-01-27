@@ -1,12 +1,23 @@
 import React from 'react';
 import './Controls.css';
 
-export default function Controls({ number, setNumber }) {
+export default function Controls({
+  number,
+  setNumber,
+  handleClick,
+  setLoading,
+}) {
   return (
     <div>
       <label>
         Select how many random animals to display:
-        <select value={number} onChange={(e) => setNumber(e.target.value)}>
+        <select
+          value={number}
+          onChange={(e) => {
+            setLoading(true);
+            setNumber(e.target.value);
+          }}
+        >
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -18,6 +29,7 @@ export default function Controls({ number, setNumber }) {
           <option value="9">9</option>
           <option value="10">10</option>
         </select>
+        <button onClick={handleClick}>Again, again</button>
       </label>
     </div>
   );

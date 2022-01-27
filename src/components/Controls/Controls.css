@@ -1,4 +1,5 @@
-select {
+select,
+button {
   padding: 10px;
   border: solid grey 3px;
   border-radius: 10px;
@@ -6,8 +7,13 @@ select {
 }
 
 label,
-select {
+select,
+button {
   font-family: 'Courier New', Courier, monospace;
   font-size: 1.3rem;
   font-weight: 900;
+}
+
+button:hover {
+  cursor: pointer;
 }

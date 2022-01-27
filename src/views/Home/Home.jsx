@@ -10,6 +10,7 @@ export default function Home() {
 
   useEffect(() => {
     const fextchData = async () => {
+      setLoading(true);
       const response = await fetch(
         `https://zoo-animal-api.herokuapp.com/animals/rand/${number}`
       );
@@ -20,13 +21,29 @@ export default function Home() {
     fextchData();
   }, [number]);
 
+  const handleClick = async () => {
+    setLoading(true);
+    const response = await fetch(
+      `https://zoo-animal-api.herokuapp.com/animals/rand/${number}`
+    );
+    const data = await response.json();
+    setData(data);
+    setLoading(false);
+  };
+
   if (loading) {
     return <div>...Loading</div>;
   }
   return (
-    <div>
-      <Controls number={number} setNumber={setNumber} />
+    <>
+      <h1>Fantastic Fetch</h1>
+      <Controls
+        number={number}
+        setNumber={setNumber}
+        handleClick={handleClick}
+        setLoading={setLoading}
+      />
       <Details data={data} />
-    </div>
+    </>
   );
 }

@@ -1,8 +1,14 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders the page title "fantastic fetch"', () => {
+test('renders the loading element', () => {
   render(<App />);
-  const linkElement = screen.getByText(/fantastic fetch/i);
-  expect(linkElement).toBeInTheDocument();
+  const loading = screen.getByText(/loading/i);
+  expect(loading).toBeInTheDocument();
+});
+
+test('renders the controls button', async () => {
+  render(<App />);
+  const button = await screen.findByRole('button');
+  expect(button).toBeInTheDocument();
 });

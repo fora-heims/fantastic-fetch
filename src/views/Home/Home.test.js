@@ -14,18 +14,20 @@ test('user behavior - select change', async () => {
   expect(await screen.findAllByRole('heading')).toHaveLength(25);
 });
 
-test('user behavior - select change with click', async () => {
+test.only('user behavior - select change with click', async () => {
   render(<Home />);
 
   await waitForElementToBeRemoved(() => screen.getByText(/loading/i));
 
   const select = await screen.findByRole('combobox');
   userEvent.selectOptions(select, '5');
+
   expect(await screen.findByText(/loading/i)).toBeInTheDocument();
   await waitForElementToBeRemoved(() => screen.getByText(/loading/i));
 
   const button = await screen.findByRole('button');
   userEvent.click(button);
+
   expect(await screen.findByText(/loading/i)).toBeInTheDocument();
   await waitForElementToBeRemoved(() => screen.getByText(/loading/i));
 

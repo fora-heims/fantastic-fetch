@@ -5,6 +5,27 @@ import {
 } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Home from './Home.jsx';
+import { setupServer } from 'msw/node';
+import { rest } from 'msw';
+
+const server = setupServer(
+  rest.get(
+    'https://zoo-animal-api.herokuapp.com/animals/rand/',
+    (req, res, ctx) => {
+      console.log(req.params);
+
+      return res(ctx.json({}));
+    }
+  )
+);
+
+beforeAll(() => {
+  server.listen();
+});
+
+afterAll(() => {
+  server.close();
+});
 
 test('user behavior - select change', async () => {
   render(<Home />);
